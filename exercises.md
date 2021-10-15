@@ -45,3 +45,6 @@ Sort the courses in the length of their name
 
 ### Exercise 13
 Square the numbers and collect the output to a list
+
+### Exercise 14
+Create a list with the length of all course titles. 
