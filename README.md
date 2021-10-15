@@ -71,4 +71,10 @@ numbers.stream()
       .sorted(Comparator.comparing(str -> str.length()))
       .forEach(System.out::println);
 ```
-### 
+### Collect the output of a stream
+#### Collect to a list
+```java
+List<Integer> doubleList = numbers.stream()
+                                  .map(number -> number*number)
+                                  .collect(Collectors.toList());
+```
