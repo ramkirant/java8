@@ -8,6 +8,14 @@ Lambda expression is a simplified representation of a method.
 ### What is a method reference
 Method reference is a way, using which, in Java 8, we convert a method into an expression. Using method references, we can pass a method as an argument to a function. 
 
+### Streams
+Operations that can be performed on streams can be categorized into two categories
+#### Intermediate operations
+Intermediate operations are the operations that are performed on a stream and they return a stream. Operations including filter, map, sorted, distinct fall into the Intermediate operations category. Intermediate operations return a stream.
+
+#### Terminal operations
+Terminal operations are the last operations that we perform on a stream. Terminal operations do not return a stream but they return a specific type. Operations including forEach, collect, reduce fall into the Terminal operations category. 
+
 ### Convert a list to a stream
 ```java
 Stream<Integer> integerStream = numbers.stream();
@@ -77,4 +85,45 @@ numbers.stream()
 List<Integer> doubleList = numbers.stream()
                                   .map(number -> number*number)
                                   .collect(Collectors.toList());
+```
+### Functional Interfaces
+An interface having exactly one abstract method annotated with **@FunctionalInterface** annotation is a functional interface. Functional interfaces can have default or static methods. There are three types of functional Interfaces
+#### Predicate
+A Predicate has a single public method **test**. Example of a predicate
+```java
+x -> x%2==0
+
+/* Internally, compiler converts the above expression something like below*/
+Predicate<Integer> eventPredicate = new Predicate<Integer>(){
+       @Override
+       public boolean test(Integer x) {
+              return x%2 == 0;
+       }
+}
+```
+#### Function
+Function accepts one argument and produces a result. A function has a single public method called **apply**. Example of a function
+```java
+x -> x*x
+
+/*Internally, compiler converts the above expression something like below*/
+Function<Integer, Integer> squareFunction = new Function<Integer, Integer>() {
+       @Override
+       public Integer apply(Integer x) {
+              return x*x;
+       }
+}
+```
+#### Consumer
+Represents an operation that accepts a single argument and returns no result. A consumer has a single public method called **accept**. Example of a Consumer
+```java
+System.out::println
+
+/*Internally, compiler converts the above expression something like below*/
+Consumer<Integer> sysOutConsumer = new Consumer<Integer>() {
+       @Override
+       public void accept(Integer x) {
+              System.out.println(x);
+       }
+}
 ```
