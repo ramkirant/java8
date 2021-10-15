@@ -24,3 +24,12 @@ Print the cubes of odd numbers
 
 ### Exercise 6
 Print the number of characters in each course name
+
+### Exercise 7
+Square every number in a list and find the sum of squares
+
+### Exercise 8
+Cube every number in the list and find the sum of cubes
+
+### Exercise 9
+Find the sum of odd numbers in the list
