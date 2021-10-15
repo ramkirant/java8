@@ -48,3 +48,14 @@ Square the numbers and collect the output to a list
 
 ### Exercise 14
 Create a list with the length of all course titles. 
+
+### Exercise 15
+Find the functional interface behind the second argument of the reduce method. Create an implementation for the Functional interface
+```java
+int sum = numbers.stream().reduce(0, Integer::sum)
+```
+### Exercise 16
+Do Behavior parameterization for the below mapping logic
+```java
+List squaredNumbers = numbers.stream().map(x -> x * x).collect(Collectors.toList())
+```
