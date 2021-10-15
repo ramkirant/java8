@@ -41,3 +41,34 @@ numbers.stream()
        .reduce(0, Integer::sum);
 ```
 
+### Getting the distinct values from the stream
+```java
+numbers.stream()
+       .distinct()
+       .forEach(System.out::println);
+```
+### Sort the values from the stream
+```java
+numbers.stream()
+       .sorted()
+       .forEach(System.out::println);
+```
+#### Sort in ascending order
+```java
+numbers.stream()
+       .sorted(Comparator.naturalOrder())
+       .forEach(System.out::println);
+```
+#### Sort in descending order
+```java
+numbers.stream()
+       .sorted(Comparator.reverseOrder())
+       .forEach(System.out::println);
+```
+#### Custom sorting (Sort with the length of the string)
+```java
+numbers.stream()
+      .sorted(Comparator.comparing(str -> str.length()))
+      .forEach(System.out::println);
+```
+### 
