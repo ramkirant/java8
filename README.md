@@ -87,7 +87,7 @@ List<Integer> doubleList = numbers.stream()
                                   .collect(Collectors.toList());
 ```
 ### Functional Interfaces
-An interface having exactly one abstract method annotated with **@FunctionalInterface** annotation is a functional interface. Functional interfaces can have default or static methods. There are three types of functional Interfaces
+An interface having exactly one abstract method annotated with **@FunctionalInterface** annotation is a functional interface. This abstract method is called as function descriptor. Functional interfaces can have default or static methods. There are three types of functional Interfaces
 #### Predicate
 A Predicate has a single public method **test**. Example of a predicate
 ```java
@@ -102,7 +102,7 @@ Predicate<Integer> eventPredicate = new Predicate<Integer>(){
 }
 ```
 #### Function
-Function accepts one argument and produces a result. A function has a single public method called **apply**. Example of a function
+Function accepts one argument and produces a result. A function has a single abstract method called **apply**. Example of a function
 ```java
 x -> x*x
 
@@ -116,7 +116,7 @@ Function<Integer, Integer> squareFunction = new Function<Integer, Integer>() {
 ```
 
 ### Binary Operator
-Binary Operator takes two arguments and produces a single result. Binary operator has a single public method called **apply**. Example of a Binary Operator
+Binary Operator takes two arguments and produces a single result. Binary operator has a single abstract method called **apply**. Example of a Binary Operator
 ```java
 (x,y) -> x+y
 
@@ -129,7 +129,7 @@ BinaryOperator<Integer> binaryOperator = new BinaryOperator<Integer>() {
 }
 ```
 #### Consumer
-Represents an operation that accepts a single argument and returns no result. A consumer has a single public method called **accept**. Example of a Consumer
+Represents an operation that accepts a single argument and returns no result. A consumer has a single absract method called **accept**. Example of a Consumer
 ```java
 System.out::println
 
@@ -139,5 +139,25 @@ Consumer<Integer> sysOutConsumer = new Consumer<Integer>() {
        public void accept(Integer x) {
               System.out.println(x);
        }
+}
+```
+
+### Behavior parameterization with Functional programming
+With Behavior parameterization, we can pass the logic / algorithm as an argument to a function. Refer to the below example on how to do Behavior parameterization
+```java
+public class FP03BehaviorParameterization {
+	public static void main(String[] args) {
+		List<Integer> numbers = List.of(4,6,8,1,3,5,5,7,1,2,9,2,4);
+		
+		filterAndPrint(numbers, x -> x%2==0);
+		
+		filterAndPrint(numbers, x -> x%2!=0);
+	}
+
+	private static void filterAndPrint(List<Integer> numbers, Predicate<Integer> predicate) {
+		numbers.stream()
+			   .filter(predicate)
+			   .forEach(System.out::println);
+	}
 }
 ```
