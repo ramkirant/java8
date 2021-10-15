@@ -33,3 +33,15 @@ Cube every number in the list and find the sum of cubes
 
 ### Exercise 9
 Find the sum of odd numbers in the list
+
+### Exercise 10
+Sort the numbers in ascending order
+
+### Exercise 11
+Sort the numbers in descending order
+
+### Exercise 12
+Sort the courses in the length of their name
+
+### Exercise 13
+Square the numbers and collect the output to a list
