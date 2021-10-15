@@ -18,3 +18,9 @@ Print courses containing the word Spring
 
 ### Exercise 4
 Print courses whose name has atleast 4 letters
+
+## Exercise 5
+Print the cubes of odd numbers
+
+### Exercise 6
+Print the number of characters in each course name
