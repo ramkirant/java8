@@ -106,7 +106,7 @@ Function accepts one argument and produces a result. A function has a single abs
 ```java
 x -> x*x
 
-/*Internally, compiler converts the above expression something like below*/
+/*Internally, compiler converts the above expression something like below. Here, Function is like Function<InputDatatype, OutputDatatype>*/
 Function<Integer, Integer> squareFunction = new Function<Integer, Integer>() {
        @Override
        public Integer apply(Integer x) {
@@ -115,8 +115,14 @@ Function<Integer, Integer> squareFunction = new Function<Integer, Integer>() {
 }
 ```
 
+### Unary Operator
+Unary Operator takes a single argument and produces a single result. For Unary Operator, input and output should be of the same datatype. Unary operator has a single abstract method called **apply**.  Example of a Unary Operator
+```java
+(x) -> 3 * x;
+```
+
 ### Binary Operator
-Binary Operator takes two arguments and produces a single result. Binary operator has a single abstract method called **apply**. Example of a Binary Operator
+Binary Operator takes two arguments and produces a single result. For Binary Operator, input and output should be of the same datatype. Binary operator has a single abstract method called **apply**. Example of a Binary Operator
 ```java
 (x,y) -> x+y
 
@@ -129,7 +135,7 @@ BinaryOperator<Integer> binaryOperator = new BinaryOperator<Integer>() {
 }
 ```
 #### Consumer
-Represents an operation that accepts a single argument and returns no result. A consumer has a single absract method called **accept**. Example of a Consumer
+Represents an operation that accepts a single input and returns no output. A consumer has a single absract method called **accept**. Example of a Consumer
 ```java
 System.out::println
 
@@ -139,6 +145,15 @@ Consumer<Integer> sysOutConsumer = new Consumer<Integer>() {
        public void accept(Integer x) {
               System.out.println(x);
        }
+}
+```
+
+### Supplier
+Supplier is the opposite of Consumer. Supplier dont accept any input but returns an output. A supplier has a single abstract method called **get**. Exmple of a supplier
+```java
+() -> {
+	Random random = new Random();
+	return random.nextInt(1000);
 }
 ```
 
