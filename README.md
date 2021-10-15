@@ -114,6 +114,20 @@ Function<Integer, Integer> squareFunction = new Function<Integer, Integer>() {
        }
 }
 ```
+
+### Binary Operator
+Binary Operator takes two arguments and produces a single result. Binary operator has a single public method called **apply**. Example of a Binary Operator
+```java
+(x,y) -> x+y
+
+/*Internally, compiler converts the aboe expression something like below*/
+BinaryOperator<Integer> binaryOperator = new BinaryOperator<Integer>() {
+       @Override
+       public Integer apply(Integer x, Integer y) {
+              return x+y;
+       }
+}
+```
 #### Consumer
 Represents an operation that accepts a single argument and returns no result. A consumer has a single public method called **accept**. Example of a Consumer
 ```java
