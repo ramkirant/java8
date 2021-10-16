@@ -49,6 +49,22 @@ numbers.stream()
        .reduce(0, Integer::sum);
 ```
 
+### Match Predicates
+#### allMatch
+allMatch returns true if all the elements of the stream satisfies the predicate condition. It will return false even if a single element dont satisfy the condition.
+```java
+courses.stream().allMatch(course -> course.getReviewScore() > 90)
+```
+#### anyMatch
+anyMatch returns true if atleast one element of the stream satisfies the predicate condition. It will return false only if all the elements dont satisfy the condition.
+```java
+courses.stream().anyMatch(course -> course.getReviewScore() > 90)
+```
+#### noneMatch
+noneMatch returns true if none of the element of the stream satisfies the predicate condition. It will return false if all the elements satisfies the condition.
+```java
+courses.stream().noneMatch(course -> course.getReviewScore() > 90)
+```
 ### Getting the distinct values from the stream
 ```java
 numbers.stream()
