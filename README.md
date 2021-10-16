@@ -95,6 +95,26 @@ numbers.stream()
       .sorted(Comparator.comparing(str -> str.length()))
       .forEach(System.out::println);
 ```
+
+#### Custom sorting of objects
+```java
+Comparator<Course> comparingByNoOfStudentsIncreasing = Comparator.comparing(Course::getNoOfStudents);
+courses.stream().sorted(comparingByNoOfStudentsIncreasing).forEach(System.out::println);
+Comparator<Course> comparingByNoOfStudentsDecreasing = Comparator.comparing(Course::getNoOfStudents).reversed();
+courses.stream().sorted(comparingByNoOfStudentsDecreasing).forEach(System.out::println);
+Comparator<Course> comparingByNoOfStudentsAndNoOfReviews = Comparator.comparing(Course::getNoOfStudents).thenComparing(Course::getNoOfReviews);
+courses.stream().sorted(comparingByNoOfStudentsAndNoOfReviews);
+```
+Also, we can use the primitive specific comparing like **comparingInt** and **thenComparingInt** for more efficient operations if we are comparing primitive types
+```java
+Comparator<Course> comparingByNoOfStudentsIncreasing = Comparator.comparingInt(Course::getNoOfStudents);
+courses.stream().sorted(comparingByNoOfStudentsIncreasing).forEach(System.out::println);
+Comparator<Course> comparingByNoOfStudentsDecreasing = Comparator.comparingInt(Course::getNoOfStudents).reversed();
+courses.stream().sorted(comparingByNoOfStudentsDecreasing).forEach(System.out::println);
+Comparator<Course> comparingByNoOfStudentsAndNoOfReviews = Comparator.comparingInt(Course::getNoOfStudents).thenComparingInt(Course::getNoOfReviews);
+courses.stream().sorted(comparingByNoOfStudentsAndNoOfReviews);
+```
+
 ### Collect the output of a stream
 #### Collect to a list
 ```java
