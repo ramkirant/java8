@@ -216,3 +216,30 @@ public class FP03BehaviorParameterization {
 	}
 }
 ```
+
+### Type inference of lambda expressions
+We an declare a type when defining a lambda expression. When we declare a type, we need to declare the type for all the variables of lambda expression. We can declare the type as below
+```java
+Predicate<Integer> isEvenPredicate = (Integer x) -> x % 2 == 0  
+```
+
+### Method References in lambda expressions
+```java
+courses.stream()
+       .map(str -> str.toUpperCase())
+       .forEach(System.out::println)
+```
+Can be replaced with
+```java
+courses.stream()
+       .map(String::toUpperCase)
+       .forEach(System.out::println)
+```
+
+```java
+Supplier<String> supplier = () -> new String() 
+```
+Can be replace with
+```java
+Supplier<String> supplier = String::new
+```
