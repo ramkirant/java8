@@ -65,6 +65,41 @@ noneMatch returns true if none of the element of the stream satisfies the predic
 ```java
 courses.stream().noneMatch(course -> course.getReviewScore() > 90)
 ```
+### skip and limit
+If we want to pick up only the first x number of elements from the stream, we can use **limit**.
+```java
+Comparator<Course> comparingByNoOfStudentsAndNoOfReviews = Comparator.comparingInt(Course::getNoOfStudents).thenComparingInt(Course::getNoOfReviews);
+List<Course> first5List = courses.stream()
+                                 .sorted(comparingByNoOfStudentsAndNoOfReviews)
+				 .limit(5)
+				 .collect(Collectors.toList());
+```
+If we want to skip the first x number of elements from the stream, we can use **skip**
+```java
+Comparator<Course> comparingByNoOfStudentsAndNoOfReviews = Comparator.comparingInt(Course::getNoOfStudents).thenComparingInt(Course::getNoOfReviews);
+List<Course> skip5List = courses.stream()
+                                .sorted(comparingByNoOfStudentsAndNoOfReviews)
+				.skip(5)
+				.collect(Collectors.toList());
+```
+
+### takeWhile and dropWhile
+We can use **takeWhile** to collect all the elements till the predicate condition is not satisfied.
+```java
+Comparator<Course> comparingByNoOfStudents = Comparator.comparingInt(Course::getNoOfStudents);
+List<Course> allCoursesUpto95Students = courses.stream()
+                                               .sorted(comparingByNoOfStudents)
+					       .takeWhile(course -> course.getReviewScore() >= 95)
+					       .collect(Collectors.toList());
+```
+We can use **dropWhile** to drop all the elements till the predicate condition is not satisfied.
+```java
+Comparator<Course> comparingByNoOfStudents = Comparator.comparingInt(Course::getNoOfStudents);
+List<Course> dropCoursesUpto95Students = courses.stream()
+                                               .sorted(comparingByNoOfStudents)
+					       .dropWhile(course -> course.getReviewScore() >= 95)
+					       .collect(Collectors.toList());
+```
 ### Getting the distinct values from the stream
 ```java
 numbers.stream()
