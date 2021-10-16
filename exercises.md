@@ -59,3 +59,14 @@ Do Behavior parameterization for the below mapping logic
 ```java
 List squaredNumbers = numbers.stream().map(x -> x * x).collect(Collectors.toList())
 ```
+
+### Will the below compile?
+1. Consumer<String> consumer = () -> {}
+2. Consumer<String> consumer = System.out::println
+3. Consumer<String> consumer = (str) -> System.out.println(str)
+4. BiConsumer<String, String> biConsumer = (str1, str2) -> System.out.println(str1)
+5. Supplier<String> supplier = () -> "Ram"
+6. Supplier<String> supplier = () -> {"Ram";}
+7. Suplier<String> supplier = () -> {return "Ram";}
+8. Consumer<String> consumer = (str) -> System.out.println(str); System.out.println(str);
+
