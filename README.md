@@ -157,6 +157,11 @@ Supplier is the opposite of Consumer. Supplier dont accept any input but returns
 }
 ```
 
+### Summary of Functional Interfaces
+| Interface | Lambda Expression |
+| --------- | ----------------- |
+| Predicate | x -> x%2=0        |
+
 ### Behavior parameterization with Functional programming
 With Behavior parameterization, we can pass the logic / algorithm as an argument to a function. Refer to the below example on how to do Behavior parameterization
 ```java
