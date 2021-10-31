@@ -59,11 +59,14 @@ Return true if atleast one number is even. Else return false
 Return true if none of the number is even. Else return false
 
 ### Exercise 18
+Skip the first three numbers and print the next 2 numbers
+
+### Exercise 19
 Find the functional interface behind the second argument of the reduce method. Create an implementation for the Functional interface
 ```java
 int sum = numbers.stream().reduce(0, Integer::sum)
 ```
-### Exercise 19
+### Exercise 20
 Do Behavior parameterization for the below mapping logic
 ```java
 List squaredNumbers = numbers.stream().map(x -> x * x).collect(Collectors.toList())
