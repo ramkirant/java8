@@ -19,7 +19,7 @@ Print courses containing the word Spring
 ### Exercise 4
 Print courses whose name has atleast 4 letters
 
-## Exercise 5
+### Exercise 5
 Print the cubes of odd numbers
 
 ### Exercise 6
@@ -50,11 +50,20 @@ Square the numbers and collect the output to a list
 Create a list with the length of all course titles. 
 
 ### Exercise 15
+Return true if all the numbers are even. Else return false
+
+### Exercise 16
+Return true if atleast one number is even. Else return false
+
+### Exercise 17
+Return true if none of the number is even. Else return false
+
+### Exercise 18
 Find the functional interface behind the second argument of the reduce method. Create an implementation for the Functional interface
 ```java
 int sum = numbers.stream().reduce(0, Integer::sum)
 ```
-### Exercise 16
+### Exercise 19
 Do Behavior parameterization for the below mapping logic
 ```java
 List squaredNumbers = numbers.stream().map(x -> x * x).collect(Collectors.toList())
